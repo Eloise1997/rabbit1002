@@ -87,7 +87,7 @@
                     </table>
 
                     <div class="totalArea">
-                        <span>小計：</span><span id="total" name="TotalPrice">@Model.TotalPrice</span>
+                        <span>總金額：</span><span id="total" name="TotalPrice">@Model.TotalPrice</span>
                     </div>
                     @Html.HiddenFor(model => model.Id)
                     @Html.HiddenFor(model => model.MemberAccount)
@@ -185,7 +185,7 @@
             // 更新 hidden 的值
             hiddenSubTotal.value = subTotal;
 
-        }       
+        }
 
         function confirmDelete(itemId) {
             Swal.fire({

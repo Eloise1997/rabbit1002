@@ -75,7 +75,9 @@
                                     <br>*@
                                 @*<span>折扣：</span><span id="discount"></span>*@
                                 <br>
-                                <span>總金額：</span><span id="total" name="TotalPrice">@Model.TotalPrice</span>
+                                @*<span>總金額：</span><span id="total" name="TotalPrice">@Model.TotalPrice</span>*@
+                                <span>總金額：</span>
+                                <span id="total" name="TotalPrice">@string.Format("{0:#,0}", Model.TotalPrice)</span>
                                 @Html.HiddenFor(model => model.TotalPrice)
                             </div>
                         </div>

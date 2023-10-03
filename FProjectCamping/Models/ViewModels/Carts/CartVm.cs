@@ -1,5 +1,6 @@
 ﻿using FProjectCamping.Models.ViewModels.Members;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace FProjectCamping.Models.ViewModels.Carts
@@ -12,8 +13,7 @@ namespace FProjectCamping.Models.ViewModels.Carts
 
 		public List<CartItemsVm> Items { get; set; }
 
-		//public int TotalPrice => Items.Sum(x => x.SubTotal);
-
+		[DisplayFormat(DataFormatString = "{0:#,0}")]
 		public int TotalPrice { get; set; }
 
 		public bool AllowCheckout { get; set; } // 至少要有一筆明細資料才可以結帳
