@@ -162,20 +162,22 @@
         // checkbox勾選 需更新 SubTotal
         function updateSubTotal(checkbox, price) {
             var row = checkbox.parentNode.parentNode;
+            var dayCell = row.querySelector('[data-days]'); // SubTotal 的位置
             var subTotalCell = row.querySelector('[data-subtotal]'); // SubTotal 的位置
             var extraPriceCell = row.querySelector('[data-extraPrice]'); // ExtraPrice 的位置
             var subTotal = parseInt(subTotalCell.textContent); // 當前 SubTotal 的值
+            var days = parseInt(dayCell.textContent);
 
             var hiddenSubTotal = row.querySelector('[name*=".SubTotal"]');
             var hiddenExtraBedPrice = row.querySelector('[name*=".ExtraBedPrice"]');
 
             // 勾選 ExtraBed 加 SubTotal
             if (checkbox.checked) {
-                subTotal += price;
-                extraPriceCell.textContent = price;
-                hiddenExtraBedPrice.value = price;
+                subTotal += days * price;
+                extraPriceCell.textContent = days * price;
+                hiddenExtraBedPrice.value = days * price;
             } else { // 如果取消勾選 ExtraBed，将 ExtraPrice 從 SubTotal 扣除
-                subTotal -= price;
+                subTotal -= days * price;
                 extraPriceCell.textContent = 0;
                 hiddenExtraBedPrice.value = 0;
             }
